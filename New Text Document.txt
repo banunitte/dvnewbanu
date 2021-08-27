@@ -17,11 +17,11 @@ df_unpivoted = data.melt( id_vars=['ts'], value_vars=['co2','humidity','pm10','p
                                                       'temperature','voc','Cooling_valve_status','Heating_valve_status'])
                                                       
                                                       
-  explainer = shap.Explainer(model.predict,DF.drop(['index','weekend','anomaly_single_point','Fault detected','score','date_time'],axis=1))
-shap_values = explainer(DF.drop(['index','weekend','anomaly_single_point','Fault detected','score','date_time'],axis=1))
-shap.summary_plot(shap_values, DF.drop(['index','weekend','score','anomaly_single_point','Fault detected'],axis=1), plot_type="bar")
+  explainer = shap.Explainer(model.predict,DF.drop(['index'],axis=1))
+shap_values = explainer(DF.drop(['index',e'],axis=1))
+shap.summary_plot(shap_values, DF.drop(['index','d'],axis=1), plot_type="bar")
 
-shap.summary_plot(shap_values, DF.drop(['index','weekend','score','anomaly_single_point','Fault detected'],axis=1))
+shap.summary_plot(shap_values, DF.drop(['],axis=1))
 shap.initjs()
 
 shap.plots.force(shap_values[12])  ### this one
