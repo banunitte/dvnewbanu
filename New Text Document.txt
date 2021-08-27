@@ -15,3 +15,19 @@ data['month'] = data['ts'].apply(lambda x : x.month)
 data['year'] = data['ts'].apply(lambda x : x.year)
 df_unpivoted = data.melt( id_vars=['ts'], value_vars=['co2','humidity','pm10','pm25',
                                                       'temperature','voc','Cooling_valve_status','Heating_valve_status'])
+                                                      
+                                                      
+  explainer = shap.Explainer(model.predict,DF.drop(['index','weekend','anomaly_single_point','Fault detected','score','date_time'],axis=1))
+shap_values = explainer(DF.drop(['index','weekend','anomaly_single_point','Fault detected','score','date_time'],axis=1))
+shap.summary_plot(shap_values, DF.drop(['index','weekend','score','anomaly_single_point','Fault detected'],axis=1), plot_type="bar")
+
+shap.summary_plot(shap_values, DF.drop(['index','weekend','score','anomaly_single_point','Fault detected'],axis=1))
+shap.initjs()
+
+shap.plots.force(shap_values[12])  ### this one
+
+https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a
+
+https://pub.towardsai.net/interpretation-of-isolation-forest-with-shap-d1b6af93ae71
+https://towardsdatascience.com/explain-your-model-with-the-shap-values-bc36aac4de3d
+https://www.analyticsvidhya.com/blog/2019/11/shapley-value-machine-learning-interpretability-game-theory/
