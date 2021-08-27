@@ -31,3 +31,16 @@ https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-k
 https://pub.towardsai.net/interpretation-of-isolation-forest-with-shap-d1b6af93ae71
 https://towardsdatascience.com/explain-your-model-with-the-shap-values-bc36aac4de3d
 https://www.analyticsvidhya.com/blog/2019/11/shapley-value-machine-learning-interpretability-game-theory/
+
+
+overview about the course	
+dataset exploration	
+unseupervised anomaly deetcion	
+model interpretation	
+ml flow	
+model deployment	web app
+	azure function
+dockerize the application	
+time series anomlay detecion	
+spark straming use cases	
+MQTT	
